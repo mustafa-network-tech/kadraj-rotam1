@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Kadraj Rotam manifesto: A philosophy of stillness and capturing authentic moments." />
+  <title>The Way of Seeing | Kadraj Rotam Manifesto</title>
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap');
+
+    :root {
+      --bg-primary: #F8F7F2;
+      --bg-secondary: #FFFFFF;
+      --ink-primary: #1A1A1A;
+      --ink-secondary: #444444;
+      --ink-tertiary: #777777;
+      --accent: #8B7355;
+      --accent-light: #D4C8B5;
+      --border: rgba(26, 26, 26, 0.08);
+      --shadow: rgba(0, 0, 0, 0.03);
+      --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      --radius-sm: 1px;
+      --radius-md: 2px;
+      --spacing-xs: 8px;
+      --spacing-sm: 16px;
+      --spacing-md: 32px;
+      --spacing-lg: 64px;
+      --spacing-xl: 120px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--ink-primary);
+      font-family: "Cormorant Garamond", serif;
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    .manifesto-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: var(--spacing-xl) var(--spacing-md);
+      position: relative;
+    }
+
+    /* Decorative Elements */
+    .manifesto-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent, var(--accent-light), transparent);
+      opacity: 0.5;
+    }
+
+    .corner-decoration {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      opacity: 0.1;
+    }
+
+    .corner-tl {
+      top: var(--spacing-lg);
+      left: var(--spacing-md);
+      border-top: 1px solid var(--ink-primary);
+      border-left: 1px solid var(--ink-primary);
+    }
+
+    .corner-tr {
+      top: var(--spacing-lg);
+      right: var(--spacing-md);
+      border-top: 1px solid var(--ink-primary);
+      border-right: 1px solid var(--ink-primary);
+    }
+
+    .corner-bl {
+      bottom: var(--spacing-lg);
+      left: var(--spacing-md);
+      border-bottom: 1px solid var(--ink-primary);
+      border-left: 1px solid var(--ink-primary);
+    }
+
+    .corner-br {
+      bottom: var(--spacing-lg);
+      right: var(--spacing-md);
+      border-bottom: 1px solid var(--ink-primary);
+      border-right: 1px solid var(--ink-primary);
+    }
+
+    /* Header */
+    .manifesto-header {
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+      padding-bottom: var(--spacing-lg);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .manifesto-header h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.2;
+    }
+
+    .manifesto-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--ink-tertiary);
+      margin-top: var(--spacing-md);
+      position: relative;
+      display: inline-block;
+    }
+
+    .manifesto-subtitle::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 25%;
+      width: 50%;
+      height: 1px;
+      background: var(--accent-light);
+    }
+
+    /* Content Sections */
+    .manifesto-content {
+      font-size: 1.25rem;
+      color: var(--ink-secondary);
+    }
+
+    .section {
+      margin-bottom: var(--spacing-lg);
+      padding: var(--spacing-md) 0;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .section:hover {
+      padding-left: var(--spacing-sm);
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      background: var(--border);
+      transition: var(--transition);
+    }
+
+    .section:hover::before {
+      background: var(--accent-light);
+      width: 2px;
+    }
+
+    /* Typography Styles */
+    .highlight {
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--ink-primary);
+      margin: var(--spacing-md) 0;
+      line-height: 1.4;
+      position: relative;
+      display: inline-block;
+      padding: 0 var(--spacing-sm);
+    }
+
+    .highlight::before {
+      content: "“";
+      position: absolute;
+      left: -10px;
+      top: -5px;
+      font-size: 2rem;
+      color: var(--accent-light);
+    }
+
+    .highlight::after {
+      content: "”";
+      position: absolute;
+      right: -10px;
+      bottom: -15px;
+      font-size: 2rem;
+      color: var(--accent-light);
+    }
+
+    .negation {
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--ink-tertiary);
+      margin-top: var(--spacing-sm);
+      display: block;
+      font-weight: 300;
+    }
+
+    .emphasis {
+      font-weight: 700;
+      color: var(--ink-primary);
+      position: relative;
+    }
+
+    .emphasis::after {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.3;
+    }
+
+    /* Pathway Block */
+    .pathway {
+      border-left: 1px solid var(--accent-light);
+      padding-left: var(--spacing-md);
+      margin: var(--spacing-md) 0 var(--spacing-lg);
+      font-style: italic;
+      color: var(--ink-secondary);
+      position: relative;
+    }
+
+    .pathway::before {
+      content: "↳";
+      position: absolute;
+      left: -2px;
+      top: 0;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .pathway strong {
+      display: block;
+      margin-bottom: var(--spacing-xs);
+      color: var(--ink-primary);
+      font-style: normal;
+    }
+
+    /* Footer & Signature */
+    .manifesto-footer {
+      margin-top: var(--spacing-xl);
+      padding-top: var(--spacing-lg);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .kr-signature {
+      font-size: 2.5rem;
+      letter-spacing: 0.3em;
+      font-weight: 400;
+      margin: var(--spacing-lg) 0;
+      position: relative;
+      display: inline-block;
+    }
+
+    .kr-signature::before,
+    .kr-signature::after {
+      content: "•";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent-light);
+      font-size: 1rem;
+    }
+
+    .kr-signature::before {
+      left: -40px;
+    }
+
+    .kr-signature::after {
+      right: -40px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+      box-shadow: 0 5px 20px var(--shadow);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .contact-section:hover {
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .contact-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ink-tertiary);
+      margin-bottom: var(--spacing-md);
+      font-weight: 500;
+    }
+
+    .contact-text {
+      font-size: 1rem;
+      color: var(--ink-secondary);
+      margin-bottom: var(--spacing-md);
+      line-height: 1.6;
+    }
+
+    .contact-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--ink-primary);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      padding-bottom: 2px;
+      border-bottom: 1px solid var(--accent);
+      transition: var(--transition);
+      display: inline-block;
+      position: relative;
+    }
+
+    .contact-link::after {
+      content: "→";
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .contact-link:hover {
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .contact-link:hover::after {
+      opacity: 1;
+      right: -25px;
+    }
+
+    /* Scroll Progress Indicator */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      z-index: 1000;
+    }
+
+    .scroll-progress-bar {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .manifesto-container {
+        padding: var(--spacing-lg) var(--spacing-sm);
+      }
+      
+      .manifesto-header h1 {
+        letter-spacing: 0.15em;
+        font-size: 2rem;
+      }
+      
+      .manifesto-content {
+        font-size: 1.1rem;
+      }
+      
+      .highlight {
+        font-size: 1.3rem;
+      }
+      
+      .corner-decoration {
+        display: none;
+      }
+      
+      .section:hover {
+        padding-left: var(--spacing-xs);
+      }
+      
+      .kr-signature::before,
+      .kr-signature::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .manifesto-header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 0.1em;
+      }
+      
+      .manifesto-subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 0.3em;
+      }
+      
+      .contact-section {
+        padding: var(--spacing-md);
+      }
+    }
+
+    /* Animation for fade-in effect */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section {
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.3s; }
+    .section:nth-child(4) { animation-delay: 0.4s; }
+    .section:nth-child(5) { animation-delay: 0.5s; }
+    .section:nth-child(6) { animation-delay: 0.6s; }
+    .section:nth-child(7) { animation-delay: 0.7s; }
+    .section:nth-child(8) { animation-delay: 0.8s; }
+    .section:nth-child(9) { animation-delay: 0.9s; }
+    .section:nth-child(10) { animation-delay: 1s; }
+    .section:nth-child(11) { animation-delay: 1.1s; }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Decorative Corner Elements -->
+  <div class="corner-decoration corner-tl"></div>
+  <div class="corner-decoration corner-tr"></div>
+  <div class="corner-decoration corner-bl"></div>
+  <div class="corner-decoration corner-br"></div>
+
+  <div class="manifesto-container">
+    <header class="manifesto-header">
+      <h1>THE WAY OF SEEING</h1>
+      <div class="manifesto-subtitle">A Manifesto by Kadraj Rotam</div>
+    </header>
+
+    <main class="manifesto-content">
+      <div class="section">
+        <span class="highlight">This is not a travel platform.</span>
+        Kadraj Rotam was not created to show the way.
+        <span class="negation">There are no maps here, no lists, no promises.</span>
+      </div>
+
+      <div class="section">
+        <strong class="emphasis">Kadraj Rotam;</strong><br>
+        does not explain how to get somewhere,
+        does not tell you what should be seen,
+        does not attempt to convince anyone of anything.
+      </div>
+
+      <div class="section highlight">
+        This is not a guide. Not a checklist.
+        Certainly not an archive of "must-sees."
+      </div>
+
+      <div class="section">
+        <span class="negation">There is no direction here. No advice. No ready-made answers.</span>
+      </div>
+
+      <div class="section">
+        Kadraj Rotam is a visual record where places are captured not as they should be, but as they were found.
+      </div>
+
+      <div class="section">
+        Nothing is planned. No scenes are staged.
+        No frames are gathered merely to impress.
+      </div>
+
+      <div class="section">
+        Every photograph here exists because it interrupted the moment.
+        It remained because it halted the gaze.
+      </div>
+
+      <div class="section highlight">
+        For Kadraj Rotam, seeing is an act.
+      </div>
+
+      <div class="section">
+        A conscious state of stillness, a timeless encounter,<br>
+        and choosing not to look away.
+      </div>
+
+      <div class="section">
+        These frames were not chosen. <br>
+        <span class="highlight" style="font-weight: 700;">They stayed.</span>
+      </div>
+
+      <div class="section">
+        Kadraj Rotam offers two paths, but draws from a single vision.
+        <div class="pathway">
+          <strong>Premium Routes</strong> treats spaces as an experience.<br>
+          <strong>Editorial Archive</strong> preserves the moments that linger.
+        </div>
+      </div>
+
+      <div class="manifesto-footer">
+        Kadraj Rotam was not established to be followed.<br>
+        It was established to safeguard what needs to remain.
+        <div class="kr-signature">KR</div>
+        
+       
+    </main>
+  </div>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/layout.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

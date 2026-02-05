@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kadraj Rotam | 3D Experience</title>
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            background-color: #F8F8F8;
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-family: "Playfair Display", Georgia, serif;
+        }
+
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .world-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1300px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #globeContainer {
+            width: min(440px, 85vw);
+            height: min(440px, 85vw);
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: grab;
+            z-index: 2;
+            /* Yazıların altında kalması için */
+            position: relative;
+        }
+
+        /* OKUNABİLİRLİĞİ ARTIRILMIŞ SLOGANLAR */
+        .route-word,
+        .memory-word {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: clamp(14px, 3vw, 32px);
+            /* Biraz daha büyütüldü */
+            letter-spacing: 0.7em;
+            text-transform: uppercase;
+            font-weight: 600;
+
+            /* Keskin Renk ve Parlama Kombinasyonu */
+            color: #E6E4DF;
+            text-shadow:
+                0 0 20px rgba(255, 255, 255, 0.9),
+                /* Yazının etrafına beyaz aura */
+                0 0 40px rgba(255, 255, 255, 0.4);
+
+            pointer-events: none;
+            z-index: 10;
+            /* Dünyanın kesinlikle üstünde */
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        .route-word {
+            left: 5%;
+        }
+
+        .memory-word {
+            right: 5%;
+        }
+
+        .manifesto {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 9px;
+            letter-spacing: 0.6em;
+            font-weight: 400;
+            color: #333;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                opacity: 0.8;
+                transform: translateY(-50%) scale(0.98);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(-50%) scale(1.02);
+            }
+        }
+
+        .content-section {
+            min-height: 100vh;
+            background-color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="site-header"></div>
+    <section class="hero-section">
+        <div class="world-wrapper">
+            <div class="route-word">ROUTE</div>
+
+            <a href="https://www.kadrajrotam.com.tr/premium-routes/" style="text-decoration: none;">
+                <div id="globeContainer"></div>
+            </a>
+
+            <div class="memory-word">MEMORY</div>
+            <div class="manifesto">NOT A MAP. A REMEMBRANCE.</div>
+        </div>
+    </section>
+    <div id="site-footer"></div>
+
+    <script src="assets/js/layout.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+</body>
+
+</html>

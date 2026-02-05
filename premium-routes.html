@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Routes | Kadraj Rotam</title>
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <style>
+    #kr-premium-routes {
+      background: #0a0a0a;
+      color: #f5f5f5;
+      line-height: 1.6
+    }
+
+    #kr-premium-routes * {
+      box-sizing: border-box;
+      font-family: Georgia, serif
+    }
+
+    #kr-premium-routes .opening {
+      text-align: center;
+      padding: 80px 16px 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, .14);
+      margin-bottom: 30px;
+    }
+
+    #kr-premium-routes .manifesto {
+      font-size: clamp(26px, 4vw, 44px);
+      font-weight: 300;
+      letter-spacing: 1.5px;
+      max-width: 920px;
+      margin: 0 auto 10px;
+    }
+
+    #kr-premium-routes .sub {
+      color: rgba(255, 255, 255, .62);
+      font-style: italic;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    #kr-premium-routes .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    #kr-premium-routes .card {
+      background: #151515;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .35);
+      transition: .25s;
+    }
+
+    #kr-premium-routes .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(139, 115, 85, .6);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, .45);
+    }
+
+    #kr-premium-routes .img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(.95) contrast(1.06);
+      transition: .4s;
+    }
+
+    #kr-premium-routes .card:hover .img {
+      transform: scale(1.04);
+    }
+
+    #kr-premium-routes .content {
+      padding: 18px;
+    }
+
+    #kr-premium-routes .name {
+      font-size: 20px;
+      font-weight: 300;
+      letter-spacing: 1.6px;
+      margin: 0 0 6px;
+    }
+
+    #kr-premium-routes .loc {
+      color: #8B7355;
+      letter-spacing: .8px;
+      margin: 0 0 10px;
+      font-size: 14px;
+    }
+
+    #kr-premium-routes .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(139, 115, 85, .08);
+      color: rgba(255, 255, 255, .70);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    #kr-premium-routes .desc {
+      color: rgba(255, 255, 255, .70);
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 0 0 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    #kr-premium-routes .status {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      border: 1px solid;
+    }
+
+    #kr-premium-routes .ok {
+      color: #62d96e;
+      background: rgba(76, 175, 80, .10);
+      border-color: rgba(76, 175, 80, .30);
+    }
+
+    #kr-premium-routes .ar {
+      color: #b7b7b7;
+      background: rgba(158, 158, 158, .10);
+      border-color: rgba(158, 158, 158, .30);
+    }
+
+    #kr-premium-routes .view {
+      margin-top: 10px;
+      color: #8B7355;
+      letter-spacing: 1px;
+      font-size: 13px;
+    }
+
+    /* Detail */
+    #kr-premium-routes .detail {
+      display: none;
+    }
+
+    #kr-premium-routes .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      padding: 14px;
+      background: rgba(10, 10, 10, .65);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #kr-premium-routes .back {
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(10, 10, 10, .6);
+      color: #f5f5f5;
+      padding: 8px 14px;
+      border-radius: 999px;
+      letter-spacing: 1px;
+    }
+
+    #kr-premium-routes .back:hover {
+      border-color: rgba(139, 115, 85, .6);
+      background: rgba(139, 115, 85, .14);
+    }
+
+    #kr-premium-routes .tag {
+      letter-spacing: 3px;
+      font-size: 12px;
+      opacity: .9;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    #kr-premium-routes .hero {
+      position: relative;
+      height: min(70vh, 520px);
+    }
+
+    #kr-premium-routes .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    #kr-premium-routes .cap {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      max-width: 780px;
+      padding: 12px 14px;
+      background: rgba(10, 10, 10, .35);
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 14px;
+      backdrop-filter: blur(8px);
+      font-style: italic;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, .7);
+    }
+
+    #kr-premium-routes .info {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 18px 20px;
+    }
+
+    #kr-premium-routes .title {
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin: 0 0 6px;
+    }
+
+    #kr-premium-routes .meta {
+      color: rgba(255, 255, 255, .70);
+      margin: 0 0 10px;
+    }
+
+    #kr-premium-routes .long {
+      color: rgba(255, 255, 255, .70);
+      line-height: 1.9;
+      margin: 0;
+      max-width: 980px;
+    }
+
+    #kr-premium-routes .gallery {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    #kr-premium-routes .gimg {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, .14);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="site-header"></div>
+  <div id="kr-premium-routes">
+    <!-- LIST -->
+    <section class="list" id="kr-list">
+      <div class="opening">
+        <h1 class="manifesto">Selected routes where light, silence and memory intersect.</h1>
+        <p class="sub">Curated journeys. Limited selections.</p>
+      </div>
+      <div class="grid" id="kr-grid"></div>
+    </section>
+
+    <!-- DETAIL -->
+    <section class="detail" id="kr-detail">
+      <div class="topbar">
+        <button class="back" id="kr-back">BACK</button>
+        <div class="tag">PREMIUM ROUTES</div>
+      </div>
+
+      <div class="hero">
+        <img id="kr-hero-img" src="" alt="">
+        <div class="cap" id="kr-cap"></div>
+      </div>
+
+      <div class="info">
+        <h2 class="title" id="kr-title"></h2>
+        <p class="meta" id="kr-meta"></p>
+        <p class="long" id="kr-long"></p>
+      </div>
+
+      <div class="gallery" id="kr-gallery"></div>
+    </section>
+
+  </div>
+  <div id="site-footer"></div>
+  <script src="assets/js/layout.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+
+</html>
